@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Твой класс</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fcfcfc 0%, #f8d4f8 100%);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .header {
+            margin-top: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .top-text {
+            font-size: 55px;
+            font-weight: bold;
+            color: rgb(78, 70, 68);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px rgba(118, 139, 72, 0.2);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+        
+        .top-text:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background: rgb(118, 139, 72);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: rgb(118, 139, 72);
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .buttons-container {
+            max-width: 650px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(78, 70, 68, 0.15);
+            border: 3px solid rgba(118, 139, 72, 0.3);
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .class-button {
+            background: rgb(118, 139, 72);
+            color: white;
+            font-size: 28px;
+            padding: 20px;
+            margin: 0;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(118, 139, 72, 0.3);
+        }
+        
+        .class-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(118, 139, 72, 0.4);
+            background: rgb(100, 120, 62);
+        }
+        
+        .class-button span {
+            display: block;
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+        
+        .decoration {
+            font-size: 35px;
+            color: rgb(118, 139, 72);
+            margin: 20px 0;
+            opacity: 0.8;
+        }
+        
+        .back-button {
+            background: rgb(182, 119, 146);
+            color: white;
+            font-size: 24px;
+            padding: 18px 40px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 15px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(182, 119, 146, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(182, 119, 146, 0.4);
+            background: rgb(160, 100, 126);
+        }
+        
+        .emoji {
+            font-size: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .top-text {
+                font-size: 40px;
+            }
+            
+            .subtitle {
+                font-size: 20px;
+            }
+            
+            .classes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .class-button {
+                font-size: 24px;
+                padding: 18px;
+            }
+            
+            .buttons-container {
+                padding: 30px 20px;
+                max-width: 90%;
+            }
+            
+            .back-button {
+                font-size: 22px;
+                padding: 15px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .top-text {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="top-text">Выбери класс, который хочешь изучить:</div>
+        <div class="subtitle">От простого к сложному • Все темы школьной программы</div>
+    </div>
+    
+    <div class="decoration">✧ ✦ ✧</div>
+    
+    <div class="buttons-container">
+        <div class="classes-grid">
+            <a href="/class/1" class="class-button">
+                1 класс
+                <span>Начальные основы</span>
+            </a>
+            <a href="/class/2" class="class-button">
+                2 класс
+                <span>Простые действия</span>
+            </a>
+            <a href="/class/3" class="class-button">
+                3 класс
+                <span>Умножение и деление</span>
+            </a>
+            <a href="/class/4" class="class-button">
+                4 класс
+                <span>Дроби и задачи</span>
+            </a>
+            <a href="/class/5" class="class-button">
+                5 класс
+                <span>Натуральные числа</span>
+            </a>
+            <a href="/class/6" class="class-button">
+                6 класс
+                <span>Обыкновенные дроби</span>
+            </a>
+            <a href="/class/7" class="class-button">
+                7 класс
+                <span>Алгебра и геометрия</span>
+            </a>
+            <a href="/class/8" class="class-button">
+                8 класс
+                <span>Квадратные уравнения</span>
+            </a>
+            <a href="/class/9" class="class-button">
+                9 класс
+                <span>Подготовка к ОГЭ</span>
+            </a>
+        </div>
+        
+        <div class="decoration">↓</div>
+        
+        <a href="/" class="back-button">
+            <span class="emoji">←</span> Назад на главную
+        </a>
+    </div>
+
+</body>
+</html>

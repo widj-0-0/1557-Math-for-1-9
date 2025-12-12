@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Математика</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fcfcfc 0%, #f8d4f8 100%);
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            font-size: 65px;
+            color: rgb(78, 70, 68);
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: rgb(118, 139, 72);
+            margin-bottom: 70px;
+            font-weight: bold;
+        }
+        
+        .start-button {
+            background: rgb(118, 139, 72);
+            color: white;
+            font-size: 36px;
+            padding: 25px 60px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 30px auto;
+            border-radius: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(118, 139, 72, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .start-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(118, 139, 72, 0.5);
+            background: rgb(100, 120, 62);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 80px auto;
+            max-width: 1200px;
+        }
+        
+        .feature {
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 300px;
+            box-shadow: 0 15px 35px rgba(78, 70, 68, 0.15);
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid rgba(118, 139, 72, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:nth-child(1) {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('https://i.pinimg.com/736x/be/cf/3d/becf3d614bd65c198ebd482b50c31abe.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature:nth-child(2) {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('https://i.pinimg.com/736x/be/cf/3d/becf3d614bd65c198ebd482b50c31abe.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature:nth-child(3) {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('https://i.pinimg.com/736x/be/cf/3d/becf3d614bd65c198ebd482b50c31abe.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 70, 68, 0.25);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .feature h3 {
+            color: rgb(118, 139, 72);
+            margin-bottom: 20px;
+            font-size: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature p {
+            color: rgb(78, 70, 68);
+            font-size: 20px;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+            color: rgb(118, 139, 72);
+        }
+        
+        .math-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(78, 70, 68, 0.2);
+            border: 8px solid white;
+        }
+        
+        .decoration {
+            font-size: 40px;
+            color: rgb(118, 139, 72);
+            margin: 20px 0;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 45px;
+                margin-top: 40px;
+            }
+            
+            .subtitle {
+                font-size: 22px;
+                margin-bottom: 50px;
+            }
+            
+            .start-button {
+                font-size: 28px;
+                padding: 20px 40px;
+            }
+            
+            .feature {
+                width: 90%;
+                padding: 30px 20px;
+            }
+            
+            .math-image {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Изучение курса математики за 1-9 классы</h1>
+    
+    <div class="subtitle">Современный подход к обучению</div>
+    
+    <div class="decoration">✧ ✦ ✧</div>
+    
+    <a href="/start" class="start-button">НАЧАТЬ ОБУЧЕНИЕ</a>
+    
+    <div class="features">
+        <div class="feature">
+            <div class="icon">w(°ｏ°)w</div>
+            <h3>Полный курс</h3>
+            <p>Все темы школьной программы с 1 по 9 класс. От простого к сложному.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">(„• ᴗ •„)</div>
+            <h3>Просто и понятно</h3>
+            <p>Объяснения доступным языком с примерами из жизни.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">(╥﹏╥)</div>
+            <h3>Практика</h3>
+            <p>Много примеров и задач для закрепления материала.</p>
+        </div>
+    </div>
+
+</body>
+</html>

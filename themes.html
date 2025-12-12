@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Темы {{ class_num }} класса</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fcfcfc 0%, #f8d4f8 100%);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .header {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .top-text {
+            font-size: 40px;
+            color: rgb(78, 70, 68);
+            margin-bottom: 10px;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+        
+        .top-text:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: rgb(118, 139, 72);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: rgb(118, 139, 72);
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .class-badge {
+            background: rgb(118, 139, 72);
+            color: white;
+            font-size: 26px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(118, 139, 72, 0.3);
+        }
+        
+        .buttons-container {
+            max-width: 650px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(78, 70, 68, 0.1);
+            border: 3px solid rgba(118, 139, 72, 0.2);
+        }
+        
+        .themes-list {
+            margin-bottom: 30px;
+        }
+        
+        .theme-button {
+            background: rgb(118, 139, 72);
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(118, 139, 72, 0.2);
+        }
+        
+        .theme-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(118, 139, 72, 0.3);
+            background: rgb(100, 120, 62);
+        }
+        
+        .decoration {
+            font-size: 30px;
+            color: rgb(118, 139, 72);
+            margin: 15px 0;
+            opacity: 0.8;
+        }
+        
+        .back-button {
+            background: rgb(182, 119, 146);
+            color: white;
+            font-size: 18px;
+            padding: 12px 30px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 12px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(182, 119, 146, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(182, 119, 146, 0.3);
+            background: rgb(160, 100, 126);
+        }
+        
+        .emoji {
+            font-size: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .top-text {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .class-badge {
+                font-size: 22px;
+                padding: 8px 25px;
+            }
+            
+            .theme-button {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .buttons-container {
+                padding: 30px 20px;
+                max-width: 90%;
+            }
+            
+            .back-button {
+                font-size: 16px;
+                padding: 10px 25px;
+                margin: 5px;
+                display: block;
+                width: 100%;
+                max-width: 250px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="top-text">Темы для изучения</div>
+        <div class="subtitle">Выбери тему и начни обучение</div>
+        
+        <div class="class-badge">
+            {{ class_num }} класс
+        </div>
+    </div>
+    
+    <div class="decoration">✧ ✦ ✧</div>
+    
+    <div class="buttons-container">
+        <div class="themes-list">
+            {% for theme_key, theme_name in themes.items() %}
+            <a href="/theory/{{ class_num }}/{{ theme_key }}" class="theme-button">
+                {{ theme_name }}
+            </a>
+            {% endfor %}
+        </div>
+        
+        <div class="decoration">↓</div>
+        
+        <a href="/start" class="back-button">
+            <span class="emoji">←</span> Назад к классам
+        </a>
+        <a href="/" class="back-button">
+            <span class="emoji">⌂</span> На главную
+        </a>
+    </div>
+
+</body>
+</html>

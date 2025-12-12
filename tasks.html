@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задания: {{ title }}</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fcfcfc 0%, #f8d4f8 100%);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid rgb(118, 139, 72);
+        }
+        
+        h1 {
+            color: rgb(78, 70, 68);
+            font-size: 42px;
+            margin: 10px 0;
+        }
+        
+        .theme-info {
+            background: rgb(118, 139, 72);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 17px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .task {
+            background: #f9fbf7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: left;
+            border-left: 3px solid rgb(118, 139, 72);
+        }
+        
+        .question {
+            font-size: 25px;
+            margin-bottom: 10px;
+            color: rgb(78, 70, 68);
+        }
+        
+        .task-number {
+            background: rgb(118, 139, 72);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-right: 8px;
+        }
+        
+        .answer-input {
+            width: 300px;
+            padding: 8px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        
+        .answer-input:focus {
+            border-color: rgb(118, 139, 72);
+            outline: none;
+        }
+        
+        .result {
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .correct {
+            background: #e8f5e9;
+            color: rgb(118, 139, 72);
+        }
+        
+        .incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .solution-btn {
+            background: rgb(118, 139, 72);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .solution-btn:hover {
+            background: rgb(100, 120, 62);
+            transform: translateY(-2px);
+        }
+        
+        .solution-text {
+            background: #fff8e1;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 5px;
+            font-size: 18px;
+            display: none;
+        }
+        
+        .submit-btn {
+            background: rgb(118, 139, 72);
+            color: white;
+            padding: 10px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 20px 0;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: rgb(100, 120, 62);
+            transform: translateY(-2px);
+        }
+        
+        .nav-buttons {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+        }
+        
+        .nav-btn {
+            background: rgb(182, 119, 146);
+            color: white;
+            padding: 7px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 0 5px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: rgb(160, 100, 126);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="theme-info">{{ class_num }} класс • {{ theme_name }}</div>
+        <h1>Проверка знаний</h1>
+        
+        <form method="POST">
+            {% for task in tasks %}
+            <div class="task">
+                <div class="question">
+                    <span class="task-number">Задание {{ loop.index }}</span>
+                    {{ task.question }}
+                </div>
+                
+                <input type="text" 
+                       name="answer_{{ loop.index0 }}" 
+                       class="answer-input" 
+                       placeholder="Ваш ответ"
+                       {% if request.method == 'POST' %}value="{{ request.form.get('answer_' ~ loop.index0, '') }}"{% endif %}>
+                
+                {% if request.method == 'POST' %}
+                    {% if results[loop.index0] %}
+                    <div class="result correct">
+                        ✓ Верно
+                    </div>
+                    {% else %}
+                    <div class="result incorrect">
+                        ✗ Неверно
+                    </div>
+                    
+                    <button type="button" class="solution-btn" onclick="toggleSolution('solution_{{ loop.index0 }}')">
+                        Показать решение
+                    </button>
+                    
+                    <div id="solution_{{ loop.index0 }}" class="solution-text">
+                        Решение:<br>
+                        {{ task.solution }}
+                    </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+            <button type="submit" class="submit-btn">
+                Проверить ответы
+            </button>
+        </form>
+        
+        <div class="nav-buttons">
+            <a href="/theory/{{ class_num }}/{{ theme_key }}" class="nav-btn">
+                ← К теории
+            </a>
+            <a href="/class/{{ class_num }}" class="nav-btn">
+                Все темы
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        function toggleSolution(solutionId) {
+            var solution = document.getElementById(solutionId);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
