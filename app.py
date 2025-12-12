@@ -27,7 +27,8 @@ def theory_page(class_num, theme_key):
     if theme_key not in themes_dict:
         return "Тема не найдена", 404
     
-    filename = f'theory/class{class_num}/{theme_key}.txt'
+    #filename = f'theory/class{class_num}/{theme_key}.txt'
+    filename = f'C:\\Users\\r10026535\\Desktop\\flask_app\\templates\\theory\\class{class_num}\\{theme_key}.txt'
     
     try:
         with open(filename, 'r', encoding='utf-8') as f:
