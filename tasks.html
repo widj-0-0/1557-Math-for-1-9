@@ -169,7 +169,7 @@
             <div class="task">
                 <div class="question">
                     <span class="task-number">Задание {{ loop.index }}</span>
-                    {{ task.question }}
+                    {{ task.question|replace('\n', '<br>')|safe }}
                 </div>
                 
                 <input type="text" 
@@ -227,4 +227,5 @@
         }
     </script>
 </body>
+
 </html>
