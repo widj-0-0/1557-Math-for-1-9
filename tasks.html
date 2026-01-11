@@ -194,7 +194,7 @@
                     
                     <div id="solution_{{ loop.index0 }}" class="solution-text">
                         Решение:<br>
-                        {{ task.solution }}
+                        {{ task.solution|replace('\n', '<br>')|safe }}
                     </div>
                     {% endif %}
                 {% endif %}
@@ -229,3 +229,4 @@
 </body>
 
 </html>
+
